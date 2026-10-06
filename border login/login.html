@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Login with Navigation</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" integrity="sha384-42kyIPf7HDYLkGffmxDhSx/3Z/53wGBs3nD6wEFxsbeDc7rMO6mkYbkAcpRsnMU2" crossorigin="anonymous">
 
 </head>
 <body>
@@ -24,18 +25,18 @@
     
 <footer>
     <div class="wrapper">
-        <form action="#">
+        <form action="#" novalidate>
 <h1>
     login
 </h1>
 <div class="input_box">
     <i class='bx bxl-gmail'></i>
-<input type="E-mail" placeholder="Username or E-mail" required>
+<input type="text" id="user" placeholder="Username or E-mail" autocomplete="username" required>
 <label>E-mail</label>
 </div>
 <div class="input_box">
     <i class='bx bxs-lock-alt' ></i>
-    <input type="password" placeholder="Password" required>
+    <input type="password" id="pass" placeholder="Password" autocomplete="current-password" required>
     <label>Password</label>
 
 </div>
@@ -44,9 +45,11 @@
 
 <a href="#">Forgotten Password?</a>
 </div>
+<p id="form-error" class="form-error" role="alert"></p>
 <button value="1" type="submit" class="btn">Login</button>
 <div class="register_link">
-<p>Dont have an account? &nbsp <a href="#">Register</ahref></p>
+<p>Don't have an account? &nbsp; <a href="#">Register</a></p>
+</div>
         </form>
     </div>
 </footer>
@@ -56,5 +59,20 @@
 
 
     
+<script>
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var user = document.getElementById("user").value.trim();
+    var pass = document.getElementById("pass").value;
+    var err = document.getElementById("form-error");
+    var msg = "";
+    if (!user) { msg = "Please enter your username or e-mail."; }
+    
+    else if (pass.length < 6) { msg = "Password must be at least 6 characters."; }
+    err.textContent = msg;
+    if (!msg) { err.style.color = "#9f9"; err.textContent = "Looks good (demo only, nothing was sent)."; }
+    else { err.style.color = "#ff8080"; }
+});
+</script>
 </body>
 </html>
