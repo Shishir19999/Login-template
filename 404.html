@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found - Login Templates</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b1622">
+  <link rel="icon" type="image/svg+xml" href="/Login-template/assets/img/favicon.svg">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('lt.theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { /* default theme */ }
+    })();
+  </script>
+  <!-- 404 pages can be served from any path, so assets use the project base path -->
+  <link rel="stylesheet" href="/Login-template/assets/css/base.css">
+  <style>
+    .nf { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: var(--sp-5); }
+    .nf h1 { font-size: var(--fs-2xl); margin-bottom: var(--sp-2); font-family: var(--font); }
+    .nf .code { font-size: 6rem; line-height: 1; color: var(--accent); font-weight: 800; }
+    .nf p { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <div>
+      <div class="code" aria-hidden="true">404</div>
+      <h1>Page not found</h1>
+      <p>The page you are looking for does not exist or has moved.</p>
+      <a class="btn" href="/Login-template/">Back to the gallery</a>
+    </div>
+  </main>
+</body>
+</html>

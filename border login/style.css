@@ -1,0 +1,33 @@
+/* Login with navigation: transparent header, floating labels, features section */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 90; display: flex; justify-content: space-between; align-items: center;
+  padding: var(--sp-3) clamp(1rem, 5vw, 5rem); background: linear-gradient(180deg, rgba(5, 14, 24, 0.55), transparent);
+}
+[data-theme="light"] .nav { background: linear-gradient(180deg, rgba(242, 246, 251, 0.85), transparent); }
+.logo { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-lg); font-weight: 700; color: var(--text); text-decoration: none; }
+.navigation { display: flex; align-items: center; gap: var(--sp-5); }
+.navigation > a:not(.btnlogin-popup) { position: relative; color: var(--text); text-decoration: none; font-weight: 500; font-size: var(--fs-sm); padding: var(--sp-1) 0; }
+.navigation > a:not(.btnlogin-popup)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; border-radius: 5px; background: var(--accent); transform: scaleX(0); transform-origin: right; transition: transform 0.3s var(--ease); }
+.navigation > a:not(.btnlogin-popup):hover::after, .navigation > a:not(.btnlogin-popup):focus-visible::after { transform: scaleX(1); transform-origin: left; }
+.btnlogin-popup { padding: 6px 22px; border: 2px solid var(--text); border-radius: var(--radius-sm); color: var(--text); text-decoration: none; font-weight: 600; font-size: var(--fs-sm); transition: background-color 0.3s, color 0.3s; }
+.btnlogin-popup:hover { background: var(--text); color: var(--bg); }
+
+.stage { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 6rem var(--sp-4) var(--sp-6); }
+
+.features { position: relative; overflow: hidden; padding: var(--sp-8) var(--sp-4); background: var(--bg); }
+.features-bg { position: absolute; inset: 0; pointer-events: none; }
+.features-bg span { position: absolute; right: -120px; top: -60px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%); }
+.wrap { position: relative; max-width: 1040px; margin: 0 auto; }
+.features h2 { font-size: var(--fs-xl); text-align: center; margin-bottom: var(--sp-6); font-family: var(--font); }
+.feature-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--sp-5); }
+.feature-grid li { padding: var(--sp-5); background: var(--surface-solid); border: 1px solid var(--border); border-radius: var(--radius); }
+.feature-grid h3 { font-size: var(--fs-lg); font-family: var(--font); }
+.feature-grid p { margin: 0; color: var(--muted); font-size: var(--fs-sm); }
+.footer { padding: var(--sp-5); text-align: center; border-top: 1px solid var(--border); background: var(--bg-alt); color: var(--muted); font-size: var(--fs-xs); }
+.footer p { margin: 0; }
+
+@media (max-width: 640px) {
+  .navigation { gap: var(--sp-3); }
+  .navigation > a:not(.btnlogin-popup):not([href="../index.html"]) { display: none; }
+  .logo span { display: none; }
+}
